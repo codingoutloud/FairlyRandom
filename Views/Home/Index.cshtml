@@ -1,0 +1,18 @@
+﻿@model FairlyRandom.Models.RankedAttendeeViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ATTENDEES</h1>
+</div>
+
+        <ul>
+            @foreach (var attendee in Model.RankedAttendees)
+            {
+                if (attendee.Rank >= Model.BestRankToShow && attendee.Rank <= Model.WorstRankToShow)
+                { 
+                   <li>&rarr; @attendee.Rank &bull; @attendee.Name &bull; @attendee.Location  &bull; @attendee.YouMightNotKnowThat</li>
+                }
+            }
+        </ul>
